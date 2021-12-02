@@ -1,16 +1,11 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using AdventOfCode2020.DailyChallenges.Day01;
-using DataProvider;
 using FluentAssertions;
-using NSubstitute;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace DailyChallengesTests
 {
-    public class ChallengeDay1Tests
+    public class ChallengeDay01Tests
     {
         [Fact]
         public void Should_count_number_of_depth_increases()
