@@ -2,7 +2,7 @@
 using AdventOfCode2020.Framework;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AdventOfCode2020.Console
+namespace AdventOfCode.Console
 {
     class Program
     {

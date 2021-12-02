@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>AdventOfCode2020.Console</AssemblyName>
-    <RootNamespace>AdventOfCode2020.Console</RootNamespace>
+    <AssemblyName>AdventOfCode-2021.Console</AssemblyName>
+    <RootNamespace>AdventOfCode.Console</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
