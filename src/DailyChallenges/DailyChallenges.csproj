@@ -21,7 +21,11 @@
   <ItemGroup>
     <None Remove="Data\input_day_01" />
     <Content Include="data\input_day_01.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="data\input_day_02.txt" />
+    <Content Include="data\input_day_02.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

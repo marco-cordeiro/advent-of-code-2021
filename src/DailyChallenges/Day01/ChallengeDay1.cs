@@ -1,5 +1,6 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using AdventOfCode2020.Framework;
 using DataProvider;
 
@@ -22,19 +23,20 @@ namespace AdventOfCode2020.DailyChallenges.Day01
         {
             _output.WriteLine($"Advent of Code day {Day}");
 
-            ResolvePart1();
-            ResolvePart2();
+            var data = _dataProvider.Read(Day).ToArray();
+            ResolvePart1(data);
+            ResolvePart2(data);
         }
 
-        private void ResolvePart1()
+        private void ResolvePart1(IEnumerable<int> data)
         {
-            var answer = _dataProvider.Read(Day).CountDepthIncreases();
+            var answer = data.CountDepthIncreases();
             _output.WriteLine($"\tThe depth increased {answer} times");
         }
 
-        private void ResolvePart2()
+        private void ResolvePart2(IEnumerable<int> data)
         {
-            var answer = _dataProvider.Read(Day)
+            var answer = data
                 .AsThreeMeasurementWindows()
                 .CountDepthIncreases();
             

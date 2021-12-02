@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.dotMemory.Console.windows-x64" Version="2021.2.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
   </ItemGroup>
 

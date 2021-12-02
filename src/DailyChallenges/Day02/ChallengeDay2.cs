@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
 using AdventOfCode2020.Framework;
 using DataProvider;
 
@@ -24,18 +25,30 @@ namespace AdventOfCode2020.DailyChallenges.Day02
         {
             _output.WriteLine($"Advent of Code day {Day}");
 
-            ResolvePart1();
-            ResolvePart2();
+            var data = _dataProvider.Read(Day).Select(x => x.ConvertToMovement()).ToArray();
+            
+            ResolvePart1(data);
+            ResolvePart2(data);
         }
 
-        private void ResolvePart1()
+        private void ResolvePart1(IEnumerable<Movement> movements)
         {
-            _output.WriteLine($"\tPart 1 is not available");
+            var (depth, hPosition) = movements.Move(false);
+
+            _output.WriteLine("\tSubmarine reached :");
+            _output.WriteLine($"\t\tDepth : {depth}");
+            _output.WriteLine($"\t\tHorizontal position : {hPosition}");
+            _output.WriteLine($"\t\tFactor : {hPosition * depth}");
         }
 
-        private void ResolvePart2()
+        private void ResolvePart2(IEnumerable<Movement> movements)
         {
-            _output.WriteLine($"\tPart 2 is not available");
+            var (depth, hPosition) = movements.Move(true);
+
+            _output.WriteLine("\tSubmarine reached :");
+            _output.WriteLine($"\t\tDepth : {depth}");
+            _output.WriteLine($"\t\tHorizontal position : {hPosition}");
+            _output.WriteLine($"\t\tFactor : {hPosition * depth}");
         }
     }
 }
