@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using AdventOfCode2020.DailyChallenges.Day04;
 using FluentAssertions;
 using Xunit;
 
@@ -7,9 +9,37 @@ namespace DailyChallengesTests
     public class ChallengeDay04Tests
     {
         [Fact]
-        public void Should_test_day_challenge_logic()
+        public void Should_parse_bingo_game()
         {
-            Assert.True(false, "day challenge not implemented yet");
+            var game = SampleData.AsBingoGame();
+
+            game.Numbers.Should().HaveCountGreaterThan(0);
+            game.Boards.Should().HaveCount(3);
+            game.Boards.First().Numbers.Should().HaveCount(25);
+        }
+        
+        [Fact]
+        public void Should_find_winning_board()
+        {
+            var game = SampleData.AsBingoGame();
+
+            var (board, number) = game.Boards.FindWinner(game.Numbers);
+            
+            board.Should().BeEquivalentTo(game.Boards[2]);
+            number.Should().Be(24);
+            board.CalculateScore().Should().Be(188);
+        }
+        
+        [Fact]
+        public void Should_find_loosing_board()
+        {
+            var game = SampleData.AsBingoGame();
+
+            var (board, number) = game.Boards.FindLooser(game.Numbers);
+            
+            board.Should().BeEquivalentTo(game.Boards[1]);
+            number.Should().Be(13);
+            board.CalculateScore().Should().Be(148);
         }
 
         private IEnumerable<string> SampleData
