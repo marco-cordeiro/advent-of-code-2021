@@ -27,6 +27,18 @@
     <Content Include="data\input_day_02.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Remove="data\input_day_03.txt" />
+    <Content Include="data\input_day_03.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="data\input_day_04.txt" />
+    <Content Include="data\input_day_04.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="data\input_day_05.txt" />
+    <Content Include="data\input_day_05.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

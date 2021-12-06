@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
@@ -9,6 +10,11 @@ namespace DailyChallengesTests
         public void Should_test_day_challenge_logic()
         {
             Assert.True(false, "day challenge not implemented yet");
+        }
+        
+        private IEnumerable<string> SampleData
+        {
+            get { yield return "value"; }
         }
     }
 }
