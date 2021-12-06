@@ -23,18 +23,30 @@ namespace AdventOfCode2020.DailyChallenges.Day05
         {
             _output.WriteLine($"Advent of Code day {Day}");
 
-            ResolvePart1();
-            ResolvePart2();
+            var lines = _dataProvider.Read(Day).AsLines().ToArray();
+                
+            ResolvePart1(lines);
+            ResolvePart2(lines);
         }
 
-        private void ResolvePart1()
+        private void ResolvePart1(IEnumerable<Line> lines)
         {
-            _output.WriteLine($"\tPart 1 is not available");
+            var map = new byte[1000, 1000];
+            map.DrawLines(lines.ExcludeDiagonals());
+
+            var values = map.ToEnumerable().Count(x => x > 1);
+
+            _output.WriteLine($"\tThere are {values} points overlapping vent lines (excluding diagonals)");
         }
 
-        private void ResolvePart2()
+        private void ResolvePart2(IEnumerable<Line> lines)
         {
-            _output.WriteLine($"\tPart 2 is not available");
+            var map = new byte[1000, 1000];
+            map.DrawLines(lines);
+
+            var values = map.ToEnumerable().Count(x => x > 1);
+
+            _output.WriteLine($"\tThere are {values} points overlapping vent lines");
         }
     }
 }
