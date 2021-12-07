@@ -39,6 +39,10 @@
     <Content Include="data\input_day_05.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Remove="data\input_day_06.txt" />
+    <Content Include="data\input_day_06.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
