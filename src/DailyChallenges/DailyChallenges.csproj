@@ -43,6 +43,10 @@
     <Content Include="data\input_day_06.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Remove="data\input_day_07.txt" />
+    <Content Include="data\input_day_07.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
