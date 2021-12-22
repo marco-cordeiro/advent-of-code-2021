@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using AdventOfCode2020.Framework;
 using DataProvider;
 
@@ -6,10 +8,10 @@ namespace AdventOfCode2020.DailyChallenges.Day08
 {
     public class ChallengeDay8 : IAdventCodeDayChallenge
     {
-        private readonly IDataProvider<int> _dataProvider;
+        private readonly IDataProvider<string> _dataProvider;
         private readonly TextWriter _output;
 
-        public ChallengeDay8(IDataProvider<int> dataProvider, TextWriter output)
+        public ChallengeDay8(IDataProvider<string> dataProvider, TextWriter output)
         {
             _dataProvider = dataProvider;
             _output = output;
@@ -21,18 +23,21 @@ namespace AdventOfCode2020.DailyChallenges.Day08
         {
             _output.WriteLine($"Advent of Code day {Day}");
 
-            ResolvePart1();
-            ResolvePart2();
+            var data = _dataProvider.Read(Day).ReadSubmarineDisplayData().ToArray();
+            ResolvePart1(data);
+            ResolvePart2(data);
         }
 
-        private void ResolvePart1()
+        private void ResolvePart1(IEnumerable<DisplayData> data)
         {
-            _output.WriteLine($"\tPart 1 is not available");
+            var digits = data.SelectMany(x => x.Output).Count(x => x.Length is 2 or 3 or 4 or 7);
+            _output.WriteLine($"\tThe output value has {digits} unique occurrences");
         }
 
-        private void ResolvePart2()
+        private void ResolvePart2(IEnumerable<DisplayData> data)
         {
-            _output.WriteLine($"\tPart 2 is not available");
+            var result = data.Select(x=>x.Analyze().Decode(x.Output)).Sum();
+            _output.WriteLine($"\tThe sum of all output values is {result}");
         }
     }
 }
