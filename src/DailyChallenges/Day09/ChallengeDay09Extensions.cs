@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode2020.DailyChallenges.DataExtensions;
 
 namespace AdventOfCode2020.DailyChallenges.Day09
 {
@@ -57,22 +58,6 @@ namespace AdventOfCode2020.DailyChallenges.Day09
             }
         }
 
-        public static byte[,] ReadCaveFloorHeightMap(this IEnumerable<string> data)
-        {
-            var materialisedData = data.ToArray();
-            var map = new byte[materialisedData.Length, materialisedData[0].Length];
-            var y = 0;
-            foreach (var line in materialisedData)
-            {
-                for (var x = 0; x < line.Length; x++)
-                {
-                    map[y,x] = byte.Parse(line[x].ToString());
-                }
-
-                y++;
-            }
-
-            return map;
-        }
+        public static byte[,] ReadCaveFloorHeightMap(this IEnumerable<string> data) => data.ReadByteMap();
     }
 }
